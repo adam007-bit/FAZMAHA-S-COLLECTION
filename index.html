@@ -1,209 +1,512 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FAZMAHA'S COLLECTION</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FAZMAHA'S COLLECTION — Luxury Fabrics from Malaysia to Nigeria</title>
+  <meta name="description" content="FAZMAHA'S COLLECTION — premium Ankara, lace and silk fabrics shipped from Malaysia to Nigeria. Browse, view details, and order directly via WhatsApp." />
+  <meta name="keywords" content="fabrics, ankara, lace, silk, nigeria, malaysia, textile, fashion" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      background: #fff8f0;
-      font-family: 'Poppins', sans-serif;
+    :root{
+      --gold:#c59d1f;
+      --gold-2:#b8860b;
+      --muted:#6b7280;
+      --card:#fff;
+      --bg:#fffaf5;
+      --maxw:1200px;
+      --radius:14px;
+      font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, Arial;
     }
-    nav {
-      background: linear-gradient(90deg, #c9a227, #d4af37);
-      padding: 10px 20px;
-      color: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:#111;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
     }
-    nav h1 { font-weight: bold; margin: 0; }
-    nav .flags span { cursor: pointer; font-size: 24px; margin-left: 10px; }
-    .hero {
-      text-align: center; padding: 100px 20px;
-      background: url('images/banner.jpg') center/cover no-repeat;
-      color: white; text-shadow: 2px 2px 6px #000;
-      animation: fadeIn 2s;
-    }
-    .hero h2 { font-size: 40px; font-weight: 700; }
-    .section-title {
-      text-align: center; margin: 50px 0 20px;
-      color: #b88a00; font-weight: 600; font-size: 28px;
-      animation: fadeInDown 1s;
-    }
-    .product-card {
-      border: 2px solid #d4af37;
-      border-radius: 15px;
-      text-align: center;
-      padding: 10px;
-      transition: transform 0.3s, box-shadow 0.3s;
-      background: white;
-    }
-    .product-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
-    .product-card img {
-      width: 100%;
-      height: 200px;
-      border-radius: 10px;
-      object-fit: cover;
-      cursor: pointer;
-    }
-    .price { color: #b88a00; font-weight: 600; }
-    .btn-gold {
-      background-color: #d4af37;
-      color: white;
-      border: none;
-      transition: 0.3s;
-    }
-    .btn-gold:hover { background-color: #b88a00; transform: scale(1.05); }
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:20px;}
 
-    /* WhatsApp button */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #25d366;
-      color: white;
-      border-radius: 50%;
-      padding: 15px;
-      font-size: 28px;
-      animation: bounce 3s infinite;
-      cursor: pointer;
-      z-index: 999;
+    /* Header */
+    header{
+      position:sticky;top:0;z-index:60;
+      background:linear-gradient(180deg, rgba(255,250,245,0.95), rgba(255,250,245,0.85));
+      backdrop-filter: blur(4px);
+      border-bottom:1px solid rgba(0,0,0,0.04);
+      padding:12px 20px;
     }
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:var(--maxw);margin:0 auto;}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{
+      width:56px;height:56px;border-radius:12px;
+      background:linear-gradient(135deg,var(--gold),var(--gold-2));
+      display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:18px;
+      box-shadow:0 6px 18px rgba(182,134,11,0.12)
+    }
+    .brand h1{margin:0;font-size:18px;letter-spacing:0.5px}
+    .brand p{margin:0;font-size:12px;color:var(--muted)}
+    nav .controls{display:flex;align-items:center;gap:10px}
+    .nav-links{display:flex;gap:12px;align-items:center}
+    .nav a{color:inherit;text-decoration:none;font-weight:600}
+    .btn{background:var(--gold);color:white;padding:8px 14px;border-radius:10px;text-decoration:none;font-weight:700;border:0;cursor:pointer}
+    .icon-btn{background:transparent;border:1px solid rgba(0,0,0,0.06);padding:6px;border-radius:8px;cursor:pointer}
+
+    /* Hero */
+    .hero{
+      display:grid;grid-template-columns:1fr 380px;gap:26px;align-items:center;padding:40px 0;
+      max-width:var(--maxw);margin:0 auto;
+    }
+    .hero-left h2{font-size:clamp(24px,4vw,40px);margin:0 0 12px}
+    .hero-left p{color:var(--muted);margin:0 0 18px}
+    .hero-cta{display:flex;gap:10px;flex-wrap:wrap}
+
+    /* Info card */
+    .info-card{background:linear-gradient(180deg,#fff,#fff9f3);padding:18px;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.06)}
+
+    /* Gallery */
+    .section-title{margin-top:28px;margin-bottom:12px;color:var(--gold);font-weight:700;font-size:20px;text-align:center}
+    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .card{
+      background:var(--card);border-radius:12px;padding:12px;
+      border:1px solid rgba(0,0,0,0.03);box-shadow:0 10px 30px rgba(2,6,23,0.04);
+      display:flex;flex-direction:column;gap:10px;transition:transform .28s ease,box-shadow .28s;
+    }
+    .card:hover{transform:translateY(-8px) scale(1.01);box-shadow:0 20px 50px rgba(2,6,23,0.08)}
+    .thumb{width:100%;height:180px;border-radius:10px;object-fit:cover;cursor:pointer}
+    .title-row{display:flex;justify-content:space-between;align-items:center;gap:8px}
+    .pname{font-weight:600;margin:0}
+    .price{color:var(--gold);font-weight:700}
+    .card .actions{display:flex;gap:8px;align-items:center;margin-top:auto}
+    .small{font-size:13px;color:var(--muted)}
+
+    /* Modal */
+    .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.55);display:flex;align-items:center;justify-content:center;padding:20px;z-index:9999}
+    .modal-box{background:white;border-radius:12px;max-width:900px;width:100%;box-shadow:0 30px 80px rgba(2,6,23,0.2);overflow:hidden}
+    .modal-body{display:grid;grid-template-columns:1fr 340px;gap:16px;padding:18px}
+    .modal-body img{width:100%;height:100%;object-fit:cover;border-radius:8px}
+    .modal-info{padding:6px 0}
+    .close-x{background:transparent;border:0;font-size:20px;cursor:pointer}
+
+    /* Mini cart */
+    .mini-cart{position:fixed;right:18px;top:90px;width:360px;max-width:90%;background:white;border-radius:12px;padding:12px;box-shadow:0 30px 60px rgba(2,6,23,0.14);z-index:200;display:none}
+    .cart-item{display:flex;gap:10px;align-items:center;padding:8px 0;border-bottom:1px dashed rgba(0,0,0,0.04)}
+    .cart-item img{width:64px;height:48px;object-fit:cover;border-radius:8px}
+    .cart-actions{display:flex;gap:8px;align-items:center;margin-top:12px}
+
+    /* WhatsApp float */
+    .wa-btn{
+      position:fixed;right:18px;bottom:18px;background:var(--gold-2);color:white;width:60px;height:60px;border-radius:999px;display:flex;align-items:center;justify-content:center;font-size:26px;z-index:999;border:0;cursor:pointer;
+      box-shadow:0 16px 40px rgba(182,134,11,0.24);
+    }
+    .wa-bounce{animation:wa-bounce 3.6s ease-in-out infinite}
+    @keyframes wa-bounce{0%,100%{transform:translateY(0)}40%{transform:translateY(-10px)}60%{transform:translateY(-6px)}}
 
     /* Animations */
-    @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
-    @keyframes fadeInDown { from {opacity:0; transform:translateY(-20px);} to {opacity:1; transform:translateY(0);} }
-    @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-      40% {transform: translateY(-10px);}
-      60% {transform: translateY(-5px);}
-    }
+    .fade-zoom{opacity:0;transform:translateY(18px) scale(.98);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.9,.3,1)}
+    .visible{opacity:1;transform:none}
 
-    footer {
-      background: #c9a227;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      margin-top: 50px;
-    }
+    /* Responsive */
+    @media (max-width:1100px){.grid{grid-template-columns:repeat(3,1fr)}.hero{grid-template-columns:1fr}}
+    @media (max-width:760px){.grid{grid-template-columns:repeat(2,1fr)}.modal-body{grid-template-columns:1fr} .hero{padding:18px 0}}
+    @media (max-width:420px){.grid{grid-template-columns:1fr}.nav-links{display:none}}
+    footer{margin-top:28px;padding:22px 0;text-align:center;color:var(--muted);font-size:14px}
   </style>
 </head>
 <body>
-
-  <!-- Navbar -->
-  <nav>
-    <h1>FAZMAHA'S COLLECTION</h1>
-    <div class="flags">
-      <span id="enBtn">🇬🇧</span>
-      <span id="haBtn">🇳🇬</span>
-    </div>
-  </nav>
-
-  <!-- Hero -->
-  <section class="hero">
-    <h2 id="hero-title">Luxury Fabrics from Malaysia to Nigeria</h2>
-    <p id="hero-sub">Explore our finest collections — elegance you can feel.</p>
-  </section>
-
-  <!-- Our Fabrics -->
-  <h3 class="section-title" id="fabric-title">Our Fabrics</h3>
-  <div class="container pb-5">
-    <div class="row g-4">
-      <!-- Sample Products -->
-      <div class="col-6 col-md-3">
-        <div class="product-card">
-          <img src="images/royal-ankara.jpg" alt="Royal Ankara" onclick="openModal('images/royal-ankara.jpg','Royal Ankara','Rich texture traditional Ankara fabric.')">
-          <h5>Royal Ankara</h5>
-          <p class="price">₦12,500</p>
-          <button class="btn btn-gold">Add to Cart</button>
+  <header>
+    <div class="nav">
+      <div class="brand">
+        <div class="logo">FC</div>
+        <div>
+          <h1>FAZMAHA'S COLLECTION</h1>
+          <p>Luxury fabrics • Malaysia → Nigeria</p>
         </div>
       </div>
-      <div class="col-6 col-md-3">
-        <div class="product-card">
-          <img src="images/golden-lace.jpg" alt="Golden Lace" onclick="openModal('images/golden-lace.jpg','Golden Lace','Luxury lace fabric with golden shimmer.')">
-          <h5>Golden Lace</h5>
-          <p class="price">₦18,000</p>
-          <button class="btn btn-gold">Add to Cart</button>
-        </div>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="product-card">
-          <img src="images/silk-bloom.jpg" alt="Silk Bloom" onclick="openModal('images/silk-bloom.jpg','Silk Bloom','Soft silk with vibrant bloom patterns.')">
-          <h5>Silk Bloom</h5>
-          <p class="price">₦22,000</p>
-          <button class="btn btn-gold">Add to Cart</button>
-        </div>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="product-card">
-          <img src="images/premium-chiffon.jpg" alt="Premium Chiffon" onclick="openModal('images/premium-chiffon.jpg','Premium Chiffon','Lightweight chiffon for elegant wear.')">
-          <h5>Premium Chiffon</h5>
-          <p class="price">₦15,000</p>
-          <button class="btn btn-gold">Add to Cart</button>
-        </div>
-      </div>
-      <!-- Add more as you wish -->
-    </div>
-  </div>
 
-  <!-- Modal -->
-  <div class="modal fade" id="imageModal" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content">
-        <div class="modal-body text-center">
-          <img id="modalImage" src="" alt="" class="img-fluid rounded">
-          <h5 id="modalTitle" class="mt-3"></h5>
-          <p id="modalDesc"></p>
-          <button class="btn btn-gold" data-bs-dismiss="modal">Close</button>
+      <div class="controls">
+        <div class="nav-links">
+          <a href="#products" data-i18n="nav_products">Products</a>
+          <a href="#about" data-i18n="nav_about">About</a>
+          <a href="#contact" data-i18n="nav_contact">Contact</a>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:8px;margin-left:12px">
+          <button id="cartBtn" class="icon-btn" title="View cart">🛒 <span id="cartCount" style="font-weight:700;margin-left:6px">0</span></button>
+          <button id="whatsTop" class="btn">WhatsApp</button>
+          <div style="display:flex;gap:6px;align-items:center;margin-left:8px">
+            <button id="flagEn" class="icon-btn" title="English">🇬🇧</button>
+            <button id="flagHa" class="icon-btn" title="Hausa">🇳🇬</button>
+          </div>
         </div>
       </div>
     </div>
+  </header>
+
+  <main class="wrap">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-left fade-zoom">
+        <h2 id="heroTitle">Luxury Fabrics shipped from Malaysia to Nigeria</h2>
+        <p id="heroSub" style="max-width:680px;color:var(--muted)">Discover premium Ankara, lace, and silk selected with care. Order small quantities or bulk for your boutique — we’ll handle secure shipping and fast replies via WhatsApp.</p>
+        <div class="hero-cta" style="margin-top:16px">
+          <a class="btn" href="#products" id="shopNow">Shop Now</a>
+          <a class="icon-btn" href="#about" id="learnMore">About</a>
+        </div>
+      </div>
+
+      <aside class="info-card fade-zoom">
+        <h4 style="margin:0 0 8px" data-i18n="quick_info">Quick Info</h4>
+        <p class="small" data-i18n="shipping">Ships from Malaysia • Delivery to Nigeria: 10–18 business days (customs may vary). Bulk discounts available — message on WhatsApp.</p>
+        <div style="margin-top:12px;font-weight:700">Contact: +60173456596</div>
+        <div style="margin-top:6px;color:var(--muted);font-size:13px">Email: hello@fazmahas.com</div>
+      </aside>
+    </section>
+
+    <!-- Products -->
+    <h3 class="section-title" id="sectionProducts" data-i18n="our_fabrics">Our Fabrics</h3>
+    <div id="products" class="grid" aria-live="polite">
+      <!-- Cards injected by JS. Replace image file names inside PRODUCTS list. -->
+    </div>
+
+    <!-- About -->
+    <section id="about" style="margin-top:28px" class="fade-zoom">
+      <h3 style="color:var(--gold);margin-bottom:10px" data-i18n="about_title">About FAZMAHA'S COLLECTION</h3>
+      <div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap">
+        <div style="flex:1;min-width:240px">
+          <p id="aboutText" style="color:var(--muted);font-size:15px">
+            FAZMAHA'S COLLECTION brings you carefully selected fabrics from Malaysia — a curated selection of Ankara, delicate lace, and luxurious silks. We make it easy for Nigerian designers and boutiques to source quality textiles with clear pricing, attentive service, and fast WhatsApp support.
+          </p>
+        </div>
+        <div style="width:320px">
+          <img src="images/about-sample.jpg" alt="About image" style="width:100%;border-radius:12px;object-fit:cover">
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" style="margin-top:28px" class="fade-zoom">
+      <h3 style="color:var(--gold);margin-bottom:10px" data-i18n="contact_title">Contact & Order</h3>
+      <div style="display:grid;grid-template-columns:1fr 360px;gap:18px">
+        <div>
+          <p style="color:var(--muted)">Prefer WhatsApp? Tap the floating button any time to message us directly. Or use this quick form and we’ll reply with shipping & payment details.</p>
+
+          <form id="contactForm" style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
+            <input id="name" placeholder="Full name" required style="padding:10px;border-radius:8px;border:1px solid #eee">
+            <input id="phone" placeholder="Phone (include country code)" required style="padding:10px;border-radius:8px;border:1px solid #eee">
+            <input id="email" placeholder="Email (optional)" style="padding:10px;border-radius:8px;border:1px solid #eee">
+            <select id="contactMethod" style="padding:10px;border-radius:8px;border:1px solid #eee">
+              <option value="whatsapp">WhatsApp</option>
+              <option value="email">Email</option>
+            </select>
+            <textarea id="message" rows="4" placeholder="Order details / message (e.g. FAB-001 x10m)" style="padding:10px;border-radius:8px;border:1px solid #eee"></textarea>
+            <div style="display:flex;gap:8px">
+              <button type="submit" class="btn">Send</button>
+              <button type="button" id="clearForm" class="icon-btn">Clear</button>
+            </div>
+            <div id="formStatus" style="color:var(--muted);font-size:13px"></div>
+          </form>
+        </div>
+
+        <aside style="background:linear-gradient(180deg,#fff,#fff9f0);padding:14px;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.04)">
+          <h4 style="margin:0 0 8px">Order Help</h4>
+          <p class="small">Need help choosing? Send pictures of the styles you like and we'll suggest matching fabrics and quantities. For bulk orders, message for special pricing.</p>
+          <div style="margin-top:12px">
+            <strong>WhatsApp:</strong> <a href="https://wa.me/60173456596" target="_blank">+60173456596</a><br>
+            <strong>Email:</strong> <a href="mailto:hello@fazmahas.com">hello@fazmahas.com</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <footer style="margin-top:40px">
+      <div style="max-width:var(--maxw);margin:0 auto;padding:12px 16px;border-top:1px solid rgba(0,0,0,0.04)">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+          <div>© <span id="year"></span> FAZMAHA'S COLLECTION</div>
+          <div style="color:var(--muted);font-size:14px">From Malaysia • Serving Nigeria • <a href="mailto:hello@fazmahas.com">hello@fazmahas.com</a></div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Mini cart -->
+  <div id="miniCart" class="mini-cart" aria-hidden="true"></div>
+
+  <!-- Image Modal (hidden) -->
+  <div id="imgModal" class="modal-backdrop" style="display:none" aria-hidden="true">
+    <div class="modal-box">
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-bottom:1px solid rgba(0,0,0,0.04)">
+        <strong id="modalTitle">Title</strong>
+        <button class="close-x" id="closeModal">✕</button>
+      </div>
+      <div class="modal-body">
+        <div><img id="modalImg" src="" alt=""></div>
+        <div class="modal-info">
+          <p id="modalDesc" style="color:var(--muted)"></p>
+          <div style="display:flex;gap:8px;margin-top:12px">
+            <button id="modalAdd" class="btn">Add to Cart</button>
+            <button id="modalWhats" class="icon-btn">Message on WhatsApp</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <!-- WhatsApp Button -->
-  <div class="whatsapp-float" onclick="window.open('https://wa.me/60173456596','_blank')">
-    <i class="fab fa-whatsapp"></i>
-  </div>
+  <!-- WhatsApp floating -->
+  <button id="waFloat" class="wa-btn wa-bounce" aria-label="WhatsApp">💬</button>
 
-  <footer>
-    © 2025 FAZMAHA'S COLLECTION — All Rights Reserved
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    const en = {
-      "hero-title":"Luxury Fabrics from Malaysia to Nigeria",
-      "hero-sub":"Explore our finest collections — elegance you can feel.",
-      "fabric-title":"Our Fabrics"
-    };
-    const ha = {
-      "hero-title":"Kyawawan Kayan Dinki daga Malaysia zuwa Najeriya",
-      "hero-sub":"Bincika mafi ingancin kayayyaki — kyan da zaka iya ji.",
-      "fabric-title":"Kayanmu"
-    };
-    let currentLang = localStorage.getItem("lang") || "en";
-    function setLang(lang){
-      const dict = lang === "ha" ? ha : en;
-      for(let id in dict){ document.getElementById(id).innerText = dict[id]; }
-      localStorage.setItem("lang", lang);
-    }
-    document.getElementById("enBtn").onclick = ()=>setLang("en");
-    document.getElementById("haBtn").onclick = ()=>setLang("ha");
-    setLang(currentLang);
+    // -----------------------
+    // SIMPLE DATA: edit this list to add/replace your products & images
+    // Images must be placed in /images folder next to this HTML.
+    // Each product: id, name_en, name_ha, code, desc_en, desc_ha, price (Naira), image
+    // -----------------------
+    const PRODUCTS = [
+      {id:101,name_en:'Royal Ankara',name_ha:'Royal Ankara',code:'FAB-101',desc_en:'Vibrant Ankara with premium finish. 6 yards per piece.',desc_ha:'Ankara mai launi da ƙyalli. Yadi 6 yards.',price:12500,image:'images/royal-ankara.jpg'},
+      {id:102,name_en:'Golden Lace',name_ha:'Golden Lace',code:'FAB-102',desc_en:'Luxury lace with golden thread highlights.',desc_ha:'Lace mai ƙyalli tare da zaren zinariya.',price:18000,image:'images/golden-lace.jpg'},
+      {id:103,name_en:'Silk Bloom',name_ha:'Silk Bloom',code:'FAB-103',desc_en:'Soft silk with bold floral prints.',desc_ha:'Silk mai laushi da zane-zanen furanni.',price:22000,image:'images/silk-bloom.jpg'},
+      {id:104,name_en:'Premium Chiffon',name_ha:'Premium Chiffon',code:'FAB-104',desc_en:'Lightweight chiffon, ideal for dresses.',desc_ha:'Chiffon mai laushi, dacewa don riguna.',price:15000,image:'images/premium-chiffon.jpg'},
+      {id:105,name_en:'Classic Batik',name_ha:'Classic Batik',code:'FAB-105',desc_en:'Traditional batik patterns with modern colors.',desc_ha:'Batik na gargajiya tare da launuka na zamani.',price:13500,image:'images/classic-batik.jpg'},
+      {id:106,name_en:'Delicate Lace II',name_ha:'Delicate Lace II',code:'FAB-106',desc_en:'Fine lace for bridal and special occasions.',desc_ha:'Lace mai laushi don bikin aure da lokuta na musamman.',price:19500,image:'images/delicate-lace.jpg'},
+      {id:107,name_en:'Velvet Touch',name_ha:'Velvet Touch',code:'FAB-107',desc_en:'Luxurious velvet for statement garments.',desc_ha:'Velvet mai daraja don sutura mai jan hankali.',price:24000,image:'images/velvet-touch.jpg'},
+      {id:108,name_en:'Light Cotton',name_ha:'Light Cotton',code:'FAB-108',desc_en:'Breathable cotton for daily wear.',desc_ha:'Auduga mai numfashi don sawa na yau da kullum.',price:8000,image:'images/light-cotton.jpg'}
+    ];
 
-    // Modal
-    function openModal(img, title, desc){
-      document.getElementById("modalImage").src = img;
-      document.getElementById("modalTitle").innerText = title;
-      document.getElementById("modalDesc").innerText = desc;
-      new bootstrap.Modal(document.getElementById('imageModal')).show();
+    // ---- state
+    let cart = JSON.parse(localStorage.getItem('fc_cart') || '[]');
+    let LANG = localStorage.getItem('fc_lang') || 'en';
+    const WA_NUMBER = '60173456596'; // no plus
+
+    // --- utilities
+    function saveCart(){ localStorage.setItem('fc_cart', JSON.stringify(cart)); updateCartCount(); }
+    function updateCartCount(){ document.getElementById('cartCount').textContent = cart.reduce((s,i)=>s+i.qty,0); }
+
+    // --- translations
+    const DICT = {
+      en:{
+        nav_products:'Products',nav_about:'About',nav_contact:'Contact',
+        quick_info:'Quick Info',shipping:'Ships from Malaysia. Delivery to Nigeria: 10–18 business days (customs vary). Bulk discounts available — message us.',
+        our_fabrics:'Our Fabrics',about_title:"About FAZMAHA'S COLLECTION",contact_title:'Contact & Order',
+        buy_now:'Add to Cart', view_details:'View Details', added:'Added to cart:', cart_empty:'Cart is empty',
+        checkout_text:'Checkout', send_order:'Send', clear:'Clear',
+        hero_title:'Luxury Fabrics shipped from Malaysia to Nigeria', hero_sub:'Discover premium Ankara, lace, and silks selected with care. Order small quantities or bulk for your boutique.'
+      },
+      ha:{
+        nav_products:'Kayayyaki',nav_about:'Game da mu',nav_contact:'Tuntuɓi mu',
+        quick_info:'Bayani na gaggawa',shipping:'Muna tura kaya daga Malaysia. Isarwa zuwa Najeriya: kwanaki 10–18 (haraji na iya bambanta). Muna ba da rangwamen babban oda — aiko mana sako.',
+        our_fabrics:'Kayanmu',about_title:'Game da FAZMAHA\\'S COLLECTION',contact_title:'Tuntuɓi & Aiko Oda',
+        buy_now:'Ƙara', view_details:'Duba Cikakken Hoto', added:'An ƙara:', cart_empty:'Keke babu komai',
+        checkout_text:'Ci gaba', send_order:'Aiko', clear:'Share',
+        hero_title:'Kayan ɗinki masu kyau daga Malaysia zuwa Najeriya', hero_sub:'Gano manya-manya Ankara, lace, da silks da aka zaɓa da kulawa. Yi odar ƙanana ko manyan adadi don shagonku.'
+      }
+    };
+
+    function t(key){ return (DICT[LANG] && DICT[LANG][key]) || (DICT['en'] && DICT['en'][key]) || key; }
+
+    // --- render products
+    function renderProducts(){
+      const container = document.getElementById('products');
+      container.innerHTML = '';
+      PRODUCTS.forEach(p=>{
+        const name = LANG==='en' ? p.name_en : p.name_ha;
+        const priceStr = '₦' + p.price.toLocaleString();
+        const card = document.createElement('div'); card.className='card fade-zoom';
+        card.innerHTML = `
+          <img class="thumb" src="${p.image}" alt="${name}" data-id="${p.id}">
+          <div class="title-row">
+            <div>
+              <div class="pname">${name}</div>
+              <div class="small">${p.code}</div>
+            </div>
+            <div class="price">${priceStr}</div>
+          </div>
+          <div class="actions">
+            <button class="btn add-btn">${t('buy_now')}</button>
+            <button class="icon-btn detail-btn">${t('view_details')}</button>
+          </div>
+        `;
+        container.appendChild(card);
+
+        // events
+        card.querySelector('.thumb').addEventListener('click', ()=> openModal(p.id));
+        card.querySelector('.add-btn').addEventListener('click', ()=> { addToCart(p.id); pulseButton(card.querySelector('.add-btn')); });
+        card.querySelector('.detail-btn').addEventListener('click', ()=> openModal(p.id));
+      });
+      observeFadeIn();
     }
+
+    function pulseButton(btn){
+      btn.style.transform='scale(0.98)';
+      setTimeout(()=>{ btn.style.transform=''; },140);
+    }
+
+    // --- modal
+    const imgModal = document.getElementById('imgModal');
+    const modalImg = document.getElementById('modalImg');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDesc = document.getElementById('modalDesc');
+    const modalAdd = document.getElementById('modalAdd');
+    const modalWhats = document.getElementById('modalWhats');
+    function openModal(id){
+      const p = PRODUCTS.find(x=>x.id===id); if(!p) return;
+      const name = LANG==='en' ? p.name_en : p.name_ha;
+      modalImg.src = p.image;
+      modalTitle.textContent = `${name} • ${p.code}`;
+      modalDesc.textContent = LANG==='en' ? p.desc_en : p.desc_ha;
+      modalAdd.onclick = ()=>{ addToCart(id); };
+      modalWhats.onclick = ()=> { const msg = encodeURIComponent(`${name} (${p.code}) - I am interested. Price: ₦${p.price.toLocaleString()}`); window.open(`https://wa.me/${WA_NUMBER}?text=${msg}`,'_blank'); };
+      imgModal.style.display = 'flex';
+      imgModal.setAttribute('aria-hidden','false');
+    }
+    document.getElementById('closeModal').addEventListener('click', ()=> { imgModal.style.display='none'; imgModal.setAttribute('aria-hidden','true'); });
+
+    // --- cart functions
+    function addToCart(id){
+      const p = PRODUCTS.find(x=>x.id===id); if(!p) return;
+      const existing = cart.find(i=>i.id===id);
+      if(existing) existing.qty++;
+      else cart.push({ id: p.id, name_en: p.name_en, name_ha: p.name_ha, code: p.code, price: p.price, image: p.image, qty:1 });
+      saveCart();
+      alert((LANG==='en' ? DICT.en.added : DICT.ha.added) + ' ' + (LANG==='en' ? p.name_en : p.name_ha));
+      renderMiniCart(); // update visible cart if open
+    }
+
+    function renderMiniCart(){
+      const mini = document.getElementById('miniCart');
+      if(!cart || cart.length===0){ mini.innerHTML = `<div style="padding:12px;color:var(--muted)">${t('cart_empty')}</div>`; document.getElementById('cartCount').textContent = 0; return; }
+      let html = '';
+      cart.forEach(item=>{
+        html += `<div class="cart-item">
+          <img src="${item.image}" alt="${LANG==='en'?item.name_en:item.name_ha}">
+          <div style="flex:1">
+            <div style="font-weight:700">${LANG==='en'?item.name_en:item.name_ha}</div>
+            <div class="small">${item.code} • ₦${(item.price).toLocaleString()}</div>
+            <div style="margin-top:6px;font-size:13px">
+              <button class="icon-btn qty" data-id="${item.id}" data-delta="-1">−</button>
+              <span style="margin:0 8px">${item.qty}</span>
+              <button class="icon-btn qty" data-id="${item.id}" data-delta="1">+</button>
+              <button class="icon-btn remove" data-id="${item.id}" style="margin-left:10px;color:#c33">Remove</button>
+            </div>
+          </div>
+        </div>`;
+      });
+      const total = cart.reduce((s,i)=>s+i.price*i.qty,0);
+      html += `<div style="padding-top:8px"><div style="font-weight:700">Total: ₦${total.toLocaleString()}</div>
+        <div class="cart-actions">
+          <button id="proceedCheckout" class="btn">${t('checkout_text')}</button>
+          <button id="closeMini" class="icon-btn">${t('clear')}</button>
+        </div></div>`;
+      mini.innerHTML = html;
+
+      // attach qty & remove
+      mini.querySelectorAll('.qty').forEach(b=>{
+        b.addEventListener('click', ()=> { changeQty(parseInt(b.dataset.id), parseInt(b.dataset.delta)); });
+      });
+      mini.querySelectorAll('.remove').forEach(b=>{ b.addEventListener('click', ()=> { removeItem(parseInt(b.dataset.id)); }); });
+
+      document.getElementById('proceedCheckout').addEventListener('click', ()=> {
+        // copy cart to message and focus form
+        const summary = cart.map(i=>`${i.code} x${i.qty}`).join('\n');
+        document.getElementById('message').value = summary + '\n\nPlease confirm shipping & payment details.';
+        document.getElementById('formStatus').textContent = LANG==='en' ? 'Order details copied into form.' : 'Bayanin oda an saka a fom.';
+        mini.style.display='none';
+        window.location.hash = '#contact';
+        window.scrollTo({top:document.getElementById('contact').offsetTop - 60, behavior:'smooth'});
+      });
+
+      document.getElementById('closeMini').addEventListener('click', ()=> { cart = []; saveCart(); renderMiniCart(); });
+      document.getElementById('cartCount').textContent = cart.reduce((s,i)=>s+i.qty,0);
+    }
+
+    function changeQty(id, delta){
+      const it = cart.find(i=>i.id===id); if(!it) return;
+      it.qty += delta; if(it.qty < 1) it.qty = 1;
+      saveCart(); renderMiniCart();
+    }
+    function removeItem(id){ cart = cart.filter(i=>i.id!==id); saveCart(); renderMiniCart(); }
+
+    // toggle mini cart
+    document.getElementById('cartBtn').addEventListener('click', ()=> {
+      const mini = document.getElementById('miniCart');
+      if(mini.style.display === 'block'){ mini.style.display='none'; }
+      else { renderMiniCart(); mini.style.display='block'; mini.scrollIntoView({behavior:'smooth'}); }
+    });
+
+    // contact form submit
+    document.getElementById('contactForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const method = document.getElementById('contactMethod').value;
+      const message = document.getElementById('message').value.trim();
+      const cartSummary = cart.map(i=>`${i.code} x${i.qty}`).join('\n');
+      const body = `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\n\nMessage:\n${message}\n\nCart:\n${cartSummary}`;
+      if(method === 'whatsapp'){
+        const txt = encodeURIComponent(body);
+        window.open(`https://wa.me/${WA_NUMBER}?text=${txt}`,'_blank');
+        document.getElementById('formStatus').textContent = LANG==='en' ? 'Opening WhatsApp...' : 'Buɗe WhatsApp...';
+      } else {
+        const mailto = `mailto:hello@fazmahas.com?subject=${encodeURIComponent('Order from '+name)}&body=${encodeURIComponent(body)}`;
+        document.getElementById('formStatus').textContent = LANG==='en' ? 'Opening mail client...' : 'Buɗe manhajar imel...';
+        window.location.href = mailto;
+      }
+    });
+    document.getElementById('clearForm').addEventListener('click', ()=> {
+      document.getElementById('name').value='';document.getElementById('phone').value='';document.getElementById('email').value='';document.getElementById('message').value=''; document.getElementById('formStatus').textContent='';
+    });
+
+    // WhatsApp floating
+    const waFloat = document.getElementById('waFloat');
+    waFloat.addEventListener('click', ()=> {
+      const txt = encodeURIComponent(LANG==='en' ? 'Hello, I am interested in your fabrics.' : 'Sannu, ina sha\\'awar kayan ku.');
+      window.open(`https://wa.me/${WA_NUMBER}?text=${txt}`,'_blank');
+    });
+    document.getElementById('whatsTop').addEventListener('click', ()=> waFloat.click());
+
+    // language toggle (save choice)
+    const flagEn = document.getElementById('flagEn'), flagHa = document.getElementById('flagHa');
+    function setLang(lang){ LANG = lang; localStorage.setItem('fc_lang', LANG); // update static texts
+      document.querySelectorAll('[data-i18n]').forEach(el=> el.textContent = (DICT[LANG] && DICT[LANG][el.getAttribute('data-i18n')]) || el.getAttribute('data-i18n'));
+      document.getElementById('heroTitle').textContent = DICT[LANG].hero_title;
+      document.getElementById('heroSub').textContent = DICT[LANG].hero_sub;
+      document.getElementById('sectionProducts').textContent = DICT[LANG].our_fabrics;
+      document.getElementById('aboutText').textContent = LANG==='en' ? 'FAZMAHA\\'S COLLECTION brings you carefully selected fabrics from Malaysia — a curated selection of Ankara, delicate lace, and luxurious silks. We make it easy for Nigerian designers and boutiques to source quality textiles with clear pricing, attentive service, and fast WhatsApp support.' : 'FAZMAHA\\'S COLLECTION na kawo muku kayan ɗinki da aka zaɓa daga Malaysia — haɗin Ankara, lace, da silks masu daraja. Muna sauƙaƙa wa masu ƙira da shagunan Najeriya samun kayan inganci tare da bayani mai sauƙi, kulawa, da amsawa ta WhatsApp.' ;
+      renderProducts(); renderMiniCart();
+      // visual
+      if(LANG==='en'){ flagEn.style.boxShadow='0 6px 18px rgba(0,0,0,0.08)'; flagHa.style.boxShadow=''; } else { flagHa.style.boxShadow='0 6px 18px rgba(0,0,0,0.08)'; flagEn.style.boxShadow=''; }
+    }
+    flagEn.addEventListener('click', ()=> setLang('en'));
+    flagHa.addEventListener('click', ()=> setLang('ha'));
+
+    // fade observer
+    function observeFadeIn(){
+      const items = document.querySelectorAll('.fade-zoom');
+      const obs = new IntersectionObserver((entries, observer) => {
+        entries.forEach(e => {
+          if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); }
+        });
+      }, {threshold:0.12});
+      items.forEach(i=>obs.observe(i));
+    }
+
+    // init
+    (function init(){
+      // initial language
+      LANG = localStorage.getItem('fc_lang') || 'en';
+      setLang(LANG);
+      renderProducts();
+      updateCartCount();
+      renderMiniCart();
+      document.getElementById('year').textContent = new Date().getFullYear();
+      // gentle wa bounce interval to attract attention (doesn't run if user prefers reduced motion)
+      if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+        setInterval(()=>{ waFloat.classList.add('wa-bounce'); setTimeout(()=>waFloat.classList.remove('wa-bounce'),1200); },4500);
+      }
+      observeFadeIn();
+    })();
   </script>
 </body>
 </html>
