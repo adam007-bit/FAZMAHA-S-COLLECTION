@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>FAZMAHA'S COLLECTION — Fabrics from Malaysia to Nigeria</title>
+  <meta name="description" content="FAZMAHA'S COLLECTION — Premium fabrics shipped from Malaysia to Nigeria. Browse, order, or contact us directly via WhatsApp or email.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --gold:#c59d1f; /* main gold */
+      --accent:#b8860b;
+      --muted:#6b7280;
+      --card:#ffffff;
+      --maxw:1200px;
+      font-family:Poppins,system-ui,-apple-system,'Segoe UI',Roboto,Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,#fff,#fbfbf7);color:#111}
+    .container{max-width:var(--maxw);margin:0 auto;padding:20px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--gold),#8c6b00);display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:18px}
+    nav{display:flex;gap:12px;align-items:center}
+    nav a{color:inherit;text-decoration:none;font-weight:600}
+    .btn{background:var(--gold);color:white;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
+
+    .lang-toggle{display:flex;gap:8px;align-items:center}
+    .flag-btn{cursor:pointer;padding:6px;border-radius:8px;font-size:18px;border:1px solid transparent}
+    .flag-btn.active{box-shadow:0 4px 14px rgba(0,0,0,0.08);border-color:rgba(0,0,0,0.04)}
+
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:center;margin-top:18px}
+    .hero h1{font-size:clamp(26px,4vw,40px);margin:0}
+    .hero p{color:var(--muted);margin:8px 0 18px}
+
+    .actions{display:flex;gap:10px;align-items:center;margin-top:14px}
+    .search{flex:1}
+    .search input{width:100%;padding:10px;border-radius:10px;border:1px solid #e6e9ef}
+
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
+    .card{background:var(--card);padding:12px;border-radius:12px;box-shadow:0 8px 30px rgba(15,23,42,0.06);display:flex;flex-direction:column}
+    .card img{width:100%;height:200px;object-fit:cover;border-radius:10px}
+    .card h4{margin:10px 0 6px}
+    .price{font-weight:700}
+    .card .row{display:flex;justify-content:space-between;align-items:center;margin-top:auto}
+
+    .split{display:grid;grid-template-columns:1fr 380px;gap:22px;margin-top:28px}
+    form{background:var(--card);padding:16px;border-radius:12px;box-shadow:0 10px 30px rgba(2,6,23,0.04)}
+    label{display:block;font-size:13px;margin-bottom:6px}
+    input,textarea,select{width:100%;padding:10px;border:1px solid #e8eef3;border-radius:8px}
+    button[type=submit]{background:var(--gold);color:white;border:0;padding:10px 14px;border-radius:10px;font-weight:700;cursor:pointer}
+
+    footer{margin-top:28px;color:var(--muted);font-size:14px}
+
+    /* WhatsApp floating */
+    .wa-btn{position:fixed;right:18px;bottom:18px;background:var(--gold);color:white;border-radius:50%;width:56px;height:56px;display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 10px 30px rgba(0,0,0,0.18);z-index:999}
+
+    /* cart modal */
+    #cartModal{position:fixed;right:18px;top:80px;width:340px;max-width:90%;background:white;border-radius:12px;box-shadow:0 20px 60px rgba(2,6,23,0.12);padding:12px;display:none;z-index:999}
+
+    @media (max-width:1000px){.grid{grid-template-columns:repeat(2,1fr)}.hero{grid-template-columns:1fr}}
+    @media (max-width:640px){.grid{grid-template-columns:1fr}.split{grid-template-columns:1fr}.hero{grid-template-columns:1fr}nav{display:none}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">FC</div>
+        <div>
+          <div style="font-weight:800;letter-spacing:0.4px">FAZMAHA'S COLLECTION</div>
+          <div id="tagline" style="font-size:13px;color:var(--muted);margin-top:2px">Welcome to FAZMAHA'S COLLECTION — Quality fabrics from Malaysia to Nigeria!</div>
+        </div>
+      </div>
+
+      <nav>
+        <a href="#products" data-i18n="nav_products">Products</a>
+        <a href="#about" data-i18n="nav_about">About</a>
+        <a href="#contact" data-i18n="nav_contact">Contact</a>
+        <a class="btn" id="whatsBtnTop" href="#">WhatsApp</a>
+        <div class="lang-toggle" style="margin-left:8px">
+          <div id="flagEn" class="flag-btn active" title="English (EN)">🇬🇧</div>
+          <div id="flagHa" class="flag-btn" title="Hausa (HA)">🇳🇬</div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <h1 data-i18n="hero_title">Beautiful fabrics, direct from Malaysia to your doorstep in Nigeria</h1>
+          <p data-i18n="hero_sub">Browse our catalog, choose your favourites, and place orders directly via the built-in order form or WhatsApp. We handle international shipping and bulk orders.</p>
+
+          <div class="actions">
+            <div class="search"><input id="search" placeholder="Search by fabric name or code..." data-i18n-placeholder="search_placeholder"></div>
+            <div><select id="filter">
+              <option value="all" data-i18n="filter_all">All Types</option>
+              <option value="ankara">Ankara</option>
+              <option value="lace">Lace</option>
+              <option value="silk">Silk</option>
+            </select></div>
+            <div class="cart-btn"><a class="btn" id="viewCart">Cart (<span id="cartCount">0</span>)</a></div>
+          </div>
+
+          <div id="products" class="grid" aria-live="polite">
+            <!-- product cards injected by JS -->
+          </div>
+        </div>
+
+        <aside style="background:linear-gradient(180deg,#fff9f2,#ffffff);padding:18px;border-radius:12px;box-shadow:0 10px 30px rgba(2,6,23,0.04)">
+          <h3 data-i18n="quick_info">Quick Info</h3>
+          <p style="color:var(--muted);margin:0 0 12px" data-i18n="shipping_info">Shipping from Malaysia. Typical delivery to Nigeria: 10–18 business days (customs varies). Bulk discounts available — contact us.</p>
+          <div style="font-weight:700;font-size:18px">Contact: +60173456596</div>
+          <div style="margin-top:8px;color:var(--muted);font-size:13px">Email: hello@fazmahas.com</div>
+        </aside>
+      </section>
+
+      <section id="about" style="margin-top:20px">
+        <h2 data-i18n="about_title">About FAZMAHA'S COLLECTION</h2>
+        <p style="color:var(--muted)" data-i18n="about_text">FAZMAHA'S COLLECTION connects Nigerian designers and shoppers with high-quality Malaysian fabrics. We specialise in Ankara, lace, and premium silks — sourced and shipped with care.</p>
+      </section>
+
+      <section style="margin-top:10px" id="order-area">
+        <h2 data-i18n="how_to_order">How to Order</h2>
+        <ol style="color:var(--muted)">
+          <li data-i18n="order_step1">Browse fabrics and add items to the cart.</li>
+          <li data-i18n="order_step2">Click <strong>View Cart</strong> to review and proceed to checkout.</li>
+          <li data-i18n="order_step3">Choose contact method: WhatsApp or the order form — we will reply with shipping & payment details.</li>
+        </ol>
+      </section>
+
+      <section class="split">
+        <div>
+          <h3 data-i18n="featured">Featured Fabrics</h3>
+          <div id="featured" class="grid" style="margin-top:12px"></div>
+        </div>
+
+        <aside>
+          <form id="orderForm">
+            <h3 data-i18n="place_order">Place Order / Contact</h3>
+            <label for="cname" data-i18n="label_name">Full name</label>
+            <input id="cname" name="name" required>
+
+            <label for="cphone" style="margin-top:8px" data-i18n="label_phone">Phone (include country code)</label>
+            <input id="cphone" name="phone" placeholder="e.g. +2348012345678" required>
+
+            <label for="cemail" style="margin-top:8px" data-i18n="label_email">Email</label>
+            <input id="cemail" type="email" name="email">
+
+            <label for="method" style="margin-top:8px" data-i18n="label_contact">Contact via</label>
+            <select id="method" name="method">
+              <option value="whatsapp" data-i18n="method_whatsapp">WhatsApp</option>
+              <option value="email" data-i18n="method_email">Email</option>
+            </select>
+
+            <label for="message" style="margin-top:8px" data-i18n="label_message">Order details (include item codes & qty) — or write your message</label>
+            <textarea id="message" rows="4" name="message" placeholder="e.g. FAB-001 x10 metres"></textarea>
+
+            <div style="display:flex;gap:8px;margin-top:12px">
+              <button type="submit" data-i18n="btn_send">Send Order</button>
+              <button type="button" id="clearCartBtn" style="background:transparent;border:1px solid #e6e9ef" data-i18n="btn_clear">Clear Cart</button>
+            </div>
+            <p id="formStatus" style="color:var(--muted);font-size:13px;margin-top:8px"></p>
+          </form>
+        </aside>
+      </section>
+
+    </main>
+
+    <footer>
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+        <div>© <span id="year"></span> FAZMAHA'S COLLECTION</div>
+        <div style="color:var(--muted)">From Malaysia • Serving Nigeria • <a href="mailto:hello@fazmahas.com">hello@fazmahas.com</a></div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Cart modal / drawer -->
+  <div id="cartModal">
+    <h4 style="margin:0 0 8px" data-i18n="cart_title">Your Cart</h4>
+    <div id="cartItems" style="max-height:300px;overflow:auto"></div>
+    <div id="cartSummary" style="margin-top:12px"></div>
+    <div style="display:flex;gap:8px;margin-top:12px">
+      <button id="checkoutBtn" class="btn" data-i18n="btn_checkout">Checkout</button>
+      <button id="closeCart" style="background:transparent;border:1px solid #e6eef3;border-radius:8px;padding:8px 10px" data-i18n="btn_close">Close</button>
+    </div>
+  </div>
+
+  <!-- WhatsApp floating button -->
+  <a id="whatsAppFloat" class="wa-btn" href="#" aria-label="WhatsApp">💬</a>
+
+  <script>
+    // --- Content dictionary (English + friendly Hausa) ---
+    const DICT = {
+      en:{
+        nav_products:'Products',nav_about:'About',nav_contact:'Contact',
+        hero_title:'Beautiful fabrics, direct from Malaysia to your doorstep in Nigeria',
+        hero_sub:'Browse our catalog, choose your favourites, and place orders directly via the built-in order form or WhatsApp. We handle international shipping and bulk orders.',
+        search_placeholder:'Search by fabric name or code...',filter_all:'All Types',quick_info:'Quick Info',shipping_info:'Shipping from Malaysia. Typical delivery to Nigeria: 10–18 business days (customs varies). Bulk discounts available — contact us.',
+        about_title:"About FAZMAHA'S COLLECTION",about_text:"FAZMAHA'S COLLECTION connects Nigerian designers and shoppers with high-quality Malaysian fabrics. We specialise in Ankara, lace, and premium silks — sourced and shipped with care.",
+        how_to_order:'How to Order',order_step1:'Browse fabrics and add items to the cart.',order_step2:'Click View Cart to review and proceed to checkout.',order_step3:'Choose contact method: WhatsApp or the order form — we will reply with shipping & payment details.',
+        featured:'Featured Fabrics',place_order:'Place Order / Contact',label_name:'Full name',label_phone:'Phone (include country code)',label_email:'Email',label_contact:'Contact via',method_whatsapp:'WhatsApp',method_email:'Email',label_message:'Order details (include item codes & qty) — or write your message',btn_send:'Send Order',btn_clear:'Clear Cart',
+        cart_title:'Your Cart',btn_checkout:'Checkout',btn_close:'Close',
+        welcome_tag:'Welcome to FAZMAHA\'S COLLECTION — Quality fabrics from Malaysia to Nigeria!'
+      },
+      ha:{
+        nav_products:'Kayayyaki',nav_about:'Game da mu',nav_contact:'Tuntuɓi mu',
+        hero_title:'Kayan ɗinki masu kyau, daga Malaysia zuwa gidanka a Najeriya',
+        hero_sub:'Duba kayayyakinmu, zaɓi abin da kake so, ka aiko oda ta hanyar fom ko WhatsApp. Muna kula da jigilar kaya zuwa ƙasashen waje da manyan odar.',
+        search_placeholder:'Nemo sunan kayan ko lambar...',filter_all:'Duk iri',quick_info:'Bayani na gaggawa',shipping_info:'Muna tura kaya daga Malaysia. Isarwa zuwa Najeriya na kwanaki 10–18 aikin ofis (ana iya ɗaukar lokaci a haraji). Muna ba da rangwamen babban oda — tuntube mu.',
+        about_title:'Game da FAZMAHA\'S COLLECTION',about_text:'FAZMAHA\'S COLLECTION na kawo kayan ɗinki masu inganci daga Malaysia zuwa masu ƙira da masu siyayya a Najeriya. Muna bada Ankara, lace, da kyawawan silks — an zaɓa kuma an aika su da kulawa.',
+        how_to_order:'Yadda ake yin oda',order_step1:'Duba kayayyaki ka ƙara su zuwa keken siyayya.',order_step2:'Danna View Cart don duba odarka da ci gaba zuwa biya.',order_step3:'Zaɓi hanyar tuntuɓa: WhatsApp ko fom — za mu dawo da ku da bayanin jigila & biyan kuɗi.',
+        featured:'Fitattun Kayan',place_order:'Aiko Oda / Tuntuɓi',label_name:'Suna cikakke',label_phone:'Lambar waya (da lambar ƙasa)',label_email:'Imel',label_contact:'Tuntuɓa ta',method_whatsapp:'WhatsApp',method_email:'Imel',label_message:'Bayanin oda (lambar kaya & adadi) — ko rubuta sakonka',btn_send:'Aiko Oda',btn_clear:'Share Keke',
+        cart_title:'Kekenka',btn_checkout:'Ci gaba',btn_close:'Rufe',
+        welcome_tag:'Barka da zuwa FAZMAHA\'S COLLECTION — Kayan ɗinki masu kyau daga Malaysia zuwa Najeriya!'
+      }
+    };
+
+    // --- Products (sample) ---
+    const PRODUCTS = [
+      {id:1,name_en:'Vibrant Ankara Print - 6 yards',name_ha:'Ankara mai launi - 6 yards',code:'FAB-ANK-001',type:'ankara',price:45,image:'https://via.placeholder.com/600x400.png?text=Ankara+1'},
+      {id:2,name_en:'Premium Lace - 5 yards',name_ha:'Lace mai inganci - 5 yards',code:'FAB-LCE-002',type:'lace',price:60,image:'https://via.placeholder.com/600x400.png?text=Lace+1'},
+      {id:3,name_en:'Silk Satin - 3 yards',name_ha:'Silk Satin - 3 yards',code:'FAB-SLK-003',type:'silk',price:70,image:'https://via.placeholder.com/600x400.png?text=Silk+1'},
+      {id:4,name_en:'Bold Ankara - 6 yards',name_ha:'Ankara mai ƙarfi - 6 yards',code:'FAB-ANK-004',type:'ankara',price:50,image:'https://via.placeholder.com/600x400.png?text=Ankara+2'},
+      {id:5,name_en:'Delicate Lace - 5 yards',name_ha:'Lace mai laushi - 5 yards',code:'FAB-LCE-005',type:'lace',price:55,image:'https://via.placeholder.com/600x400.png?text=Lace+2'},
+      {id:6,name_en:'Luxury Silk - 3 yards',name_ha:'Luxury Silk - 3 yards',code:'FAB-SLK-006',type:'silk',price:85,image:'https://via.placeholder.com/600x400.png?text=Silk+2'}
+    ];
+
+    // cart
+    let cart = JSON.parse(localStorage.getItem('fc_cart') || '[]');
+    function saveCart(){localStorage.setItem('fc_cart',JSON.stringify(cart));updateCartCount();}
+    function updateCartCount(){document.getElementById('cartCount').textContent = cart.reduce((s,i)=>s+i.qty,0)}
+
+    // language
+    let LANG = 'en'; // default english
+    function t(key){ return DICT[LANG][key] || DICT['en'][key] || key }
+    function translatePage(){
+      // static keys
+      document.querySelectorAll('[data-i18n]').forEach(el=>{el.textContent = t(el.getAttribute('data-i18n'))});
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{el.placeholder = t(el.getAttribute('data-i18n-placeholder'))});
+      // tagline
+      document.getElementById('tagline').textContent = t('welcome_tag');
+      // top nav buttons
+      document.getElementById('whatsBtnTop').textContent = LANG==='en' ? 'WhatsApp' : 'WhatsApp';
+      // update product cards
+      applyFilters();
+      renderFeatured();
+    }
+
+    // render products depending on LANG
+    const productsEl = document.getElementById('products');
+    function renderProducts(list){productsEl.innerHTML='';list.forEach(p=>{
+      const name = LANG==='en' ? p.name_en : p.name_ha;
+      const el = document.createElement('div');el.className='card';
+      el.innerHTML = `
+        <img src="${p.image}" alt="${name}">
+        <h4>${name}</h4>
+        <div style=\"color:var(--muted);font-size:13px\">Code: ${p.code} • ${p.type}</div>
+        <div class=\"row\"><div class=\"price\">$${p.price.toFixed(2)}</div><div><button onclick=\"addToCart(${p.id})\" style=\"background:var(--gold);color:white;border:0;padding:8px 10px;border-radius:8px;cursor:pointer\">${LANG==='en'?'Add':'Ƙara'}</button></div></div>
+      `;
+      productsEl.appendChild(el);
+    })}
+
+    // featured
+    const featuredEl = document.getElementById('featured');
+    function renderFeatured(){featuredEl.innerHTML='';PRODUCTS.slice(0,3).forEach(p=>{
+      const name = LANG==='en' ? p.name_en : p.name_ha;
+      const c=document.createElement('div');c.className='card';c.innerHTML=`<img src="${p.image}" alt="${name}"><h4>${name}</h4><div style="color:var(--muted);font-size:13px">${p.code}</div><div class="row"><div class="price">$${p.price.toFixed(2)}</div><div><button onclick="addToCart(${p.id})" style="background:var(--gold);color:white;border:0;padding:8px 10px;border-radius:8px;cursor:pointer">${LANG==='en'?'Add':'Ƙara'}</button></div></div>`;featuredEl.appendChild(c);
+    })}
+
+    function addToCart(id){const p=PRODUCTS.find(x=>x.id===id);if(!p) return;const existing=cart.find(i=>i.id===id);if(existing){existing.qty+=1}else{cart.push({id:p.id,name_en:p.name_en,name_ha:p.name_ha,code:p.code,price:p.price,qty:1})}saveCart();alert(LANG==='en'? 'Added to cart: '+p.name_en : 'An ƙara a keken: '+p.name_ha)}
+
+    // cart modal controls
+    const cartModal = document.getElementById('cartModal');
+    document.getElementById('viewCart').addEventListener('click',()=>{renderCart();cartModal.style.display='block'});
+    document.getElementById('closeCart').addEventListener('click',()=>cartModal.style.display='none');
+
+    function renderCart(){const el=document.getElementById('cartItems');el.innerHTML='';if(cart.length===0){el.innerHTML=`<div style=\"color:var(--muted)\">${LANG==='en'?'Cart is empty':'Keke babu komai'}</div>`;document.getElementById('cartSummary').innerHTML='';return}
+      cart.forEach(item=>{const name = LANG==='en'? item.name_en : item.name_ha; const row=document.createElement('div');row.style.display='flex';row.style.justifyContent='space-between';row.style.alignItems='center';row.style.marginBottom='8px';row.innerHTML=`<div><strong>${name}</strong><div style=\"font-size:13px;color:var(--muted)\">${item.code}</div></div><div style=\"text-align:right\"><div>$${(item.price*item.qty).toFixed(2)}</div><div style=\"font-size:13px;margin-top:6px\"><button onclick=\"changeQty(${item.id},-1)\" style=\"margin-right:6px\">−</button>${item.qty}<button onclick=\"changeQty(${item.id},1)\" style=\"margin-left:6px\">+</button></div><div><button onclick=\"removeItem(${item.id})\" style=\"margin-top:6px;background:transparent;border:0;color:#d33;cursor:pointer\">${LANG==='en'?'Remove':'Cire'}</button></div></div>`;el.appendChild(row)});
+      const total = cart.reduce((s,i)=>s+i.price*i.qty,0);
+      document.getElementById('cartSummary').innerHTML = `<div style=\"font-weight:700\">${LANG==='en'?'Total':'Jimlar'}: $${total.toFixed(2)}</div>`;
+    }
+
+    function changeQty(id,delta){const it=cart.find(i=>i.id===id);if(!it) return;it.qty+=delta;if(it.qty<1) it.qty=1;saveCart();renderCart();}
+    function removeItem(id){cart = cart.filter(i=>i.id!==id);saveCart();renderCart();}
+
+    document.getElementById('checkoutBtn').addEventListener('click',()=>{
+      const msg = cart.map(i=>`${i.code} x${i.qty}`).join('
+');
+      document.getElementById('message').value = msg + '
+
+' + (LANG==='en'? 'Please confirm shipping and payment details.' : 'Don Allah tabbatar da bayanin jigila da biyan kuɗi.');
+      document.getElementById('formStatus').textContent = LANG==='en' ? 'Order details copied into form. Choose WhatsApp or Email and press Send.' : 'Bayanin oda an saka a fom. Zaɓi WhatsApp ko Imel ka danna Aiko.';
+      cartModal.style.display='none';
+      window.scrollTo({top:document.getElementById('order-area').offsetTop,behavior:'smooth'});
+    });
+
+    document.getElementById('clearCartBtn').addEventListener('click',()=>{if(confirm(LANG==='en'?'Clear cart?':'A share keke?')){cart=[];saveCart();renderCart();document.getElementById('formStatus').textContent=LANG==='en'?'Cart cleared.':'An share keke.'}});
+
+    // order form submit -> whatsapp or mailto
+    document.getElementById('orderForm').addEventListener('submit',(e)=>{
+      e.preventDefault();
+      const name = document.getElementById('cname').value.trim();
+      const phone = document.getElementById('cphone').value.trim();
+      const email = document.getElementById('cemail').value.trim();
+      const method = document.getElementById('method').value;
+      const message = document.getElementById('message').value.trim();
+      const shopUrl = window.location.origin + window.location.pathname;
+      const cartSummary = cart.map(i=>`${i.code} x${i.qty}`).join('
+');
+      const bodyPlain = `Name: ${name}
+Phone: ${phone}
+Email: ${email}
+
+Order/Message:
+${message}
+
+Cart summary:
+${cartSummary}
+
+Source: ${shopUrl}`;
+      const body = encodeURIComponent(bodyPlain);
+
+      if(method==='whatsapp'){
+        const waNumber = '60173456596'; // FAZMAHA'S WhatsApp (no +)
+        const wa = `https://wa.me/${waNumber}?text=${body}`;
+        document.getElementById('formStatus').textContent = LANG==='en' ? 'Opening WhatsApp...' : 'Buɗe WhatsApp...';
+        window.open(wa,'_blank');
+      } else {
+        const mail = `mailto:hello@fazmahas.com?subject=${encodeURIComponent((LANG==='en'?'Order from ':'Oda daga ')+name)}&body=${body}`;
+        document.getElementById('formStatus').textContent = LANG==='en' ? 'Opening mail client...' : 'Buɗe manhajar imel...';
+        window.location.href = mail;
+      }
+    });
+
+    // search & filter
+    document.getElementById('search').addEventListener('input',()=>applyFilters());
+    document.getElementById('filter').addEventListener('change',()=>applyFilters());
+    function applyFilters(){const q=document.getElementById('search').value.toLowerCase();const f=document.getElementById('filter').value;const res = PRODUCTS.filter(p=>{
+      const name = LANG==='en' ? p.name_en.toLowerCase() : p.name_ha.toLowerCase();
+      const matchQ = name.includes(q) || p.code.toLowerCase().includes(q);
+      const matchF = (f==='all')?true:p.type===f;
+      return matchQ && matchF;
+    });renderProducts(res)}
+
+    // init
+    renderProducts(PRODUCTS);
+    renderFeatured();
+    updateCartCount();
+    document.getElementById('year').textContent = new Date().getFullYear();
+    translatePage();
+
+    // language buttons
+    const flagEn = document.getElementById('flagEn');
+    const flagHa = document.getElementById('flagHa');
+    flagEn.addEventListener('click',()=>{LANG='en';flagEn.classList.add('active');flagHa.classList.remove('active');translatePage();});
+    flagHa.addEventListener('click',()=>{LANG='ha';flagHa.classList.add('active');flagEn.classList.remove('active');translatePage();});
+
+    // WhatsApp floating button
+    const waFloat = document.getElementById('whatsAppFloat');
+    waFloat.addEventListener('click',()=>{
+      const text = encodeURIComponent(LANG==='en' ? 'Hello, I am interested in your fabrics.' : 'Sannu, ina sha\'awar kayan ku.');
+      window.open(`https://wa.me/60173456596?text=${text}`,'_blank');
+    });
+    // top WhatsApp button
+    document.getElementById('whatsBtnTop').addEventListener('click',()=>{waFloat.click()});
+
+    console.log('FAZMAHA\'S COLLECTION bilingual site loaded — gold theme, WhatsApp number set.');
+  </script>
+
+</body>
+</html>
